@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "event-manager"
+version = "0.1.0"
+description = "This project is a RESTful API built with Django Rest Framework for managing events."
+authors = ["Vladislav Khizhenok <vladislav.khizhenok@innowise.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.12"
+Django = "~5.1"
+djangorestframework = "~3.15.2"
+drf-spectacular = "~0.27.2"
+djangorestframework-simplejwt = "~5.3.1"
+django-filter = "~24.3"
+gunicorn = "~23.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "~3.8.0"
+ruff = "~0.5.5"
+faker = "~28.0.0"
+coverage = "^7.6.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+lint.select = [
+    "E",    # Enable error codes checks
+    "F",    # Enable checks for source files errors
+    "W",    # Enable linter warnings
+    "I",    # Enable Isort related checks
+    "N",    # Enable pep8-naming conventions
+    "RSE",  # Enable `unnecessary parentheses on raised exception` check
+    "RET",  # Enable `return` checks
+    "T20",  # Enable `print found` checks
+    "PIE",  # Enable `specific` checks: https://docs.astral.sh/ruff/rules/#flake8-pyi-pyi
+]
+format.quote-style = "double"
+
+[tool.mypy]
+python_version = 3.12
+check_untyped_defs = true
+disable_error_code = [
+  "arg-type",
+  "assignment",
+  "call-arg",
+  "import",
+  "no-redef",
+  "return",
+  "return-value",
+  "var-annotated"
+]
+exclude = 'tests'
+files = ["event_manager"]
+follow_imports = "skip"
+ignore_missing_imports = true

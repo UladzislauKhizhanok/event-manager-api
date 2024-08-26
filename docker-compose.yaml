@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    volumes:
+      - ./volumes:/tmp/volumes
+    environment:
+      - DATABASE_NAME=/tmp/volumes/db.sqlite3
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DEBUG=1
+    ports:
+      - "8000:8000"
