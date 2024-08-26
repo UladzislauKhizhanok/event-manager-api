@@ -1,0 +1,25 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python 3.12.3
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.3'
+
+      - name: Install dependencies
+        shell: bash
+        run: pip install pre-commit poetry && poetry install
+
+      - name: Lint
+        shell: bash
+        run: poetry run pre-commit run --all-files
