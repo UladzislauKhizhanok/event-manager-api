@@ -42,6 +42,7 @@ Once the containers are up and running, you can access the API at `http://localh
 -  **User Registration:** `POST /api/users/register/`
 -  **User Login:** `POST /api/users/login/`
 -  **Token Refresh:** `POST /api/users/refresh/`
+-  **Verify Token:** `POST /api/users/verify/`
 -  **Get Current User:** `GET /api/users/me/`
 
 #### Events
